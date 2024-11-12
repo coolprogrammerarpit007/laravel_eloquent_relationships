@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Profile;
+use App\Models\Post;
 
 class User extends Authenticatable
 {
@@ -53,4 +54,20 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+
+    // A user can have many posts so this is a one to many relationships.
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
+
+
+// One To Many Relationships
+// A user can have many relationships like
+// user can have many posts
+// user can have many jobs or many achivments.
+// post can have many comments.
+
+
+// Many To Many Relationships.
